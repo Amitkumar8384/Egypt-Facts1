@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egyptian Oracle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="pyramid-bg">
+        <svg viewBox="0 0 400 500" class="bg-pyramid">
+            <defs>
+                <linearGradient id="pyramidGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#f7d16e" />
+                    <stop offset="50%" stop-color="#c47a18" />
+                    <stop offset="100%" stop-color="#7a3f0e" />
+                </linearGradient>
+                <linearGradient id="pyramidGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#e8bb5b" />
+                    <stop offset="100%" stop-color="#5a2a08" />
+                </linearGradient>
+            </defs>
+            <path d="M200 30 L50 380 L350 380 Z" fill="url(#pyramidGrad1)" opacity="0.85" />
+            <path d="M200 30 L200 380 L350 380 Z" fill="url(#pyramidGrad2)" opacity="0.9" />
+            <path d="M200 30 L50 380 L200 380 Z" fill="#8b5a1f" opacity="0.8" />
+        </svg>
+    </div>
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <main class="container">
+        
+        <div class="badge">𓆣 Ancient Oracle</div>
+        <div class="hero">
+            <div class="content-panel">
+                <div class="ornament">☼</div>
+                <p class="eyebrow">Wisdom from the Gods • Eternal Knowledge</p>
+                <h1>Egyptian Mysteries</h1>
+                <p class="subtitle">Unlock the secrets of ancient civilizations. Each oracle holds profound wisdom from the golden age of pharaohs.</p>
+
+                <button id="btn" class="btn">
+                    <span>Reveal Ancient Wisdom</span>
+                </button>
+  <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                <section class="fact-card" aria-live="polite">
+                    <!-- <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button> -->
+                    <div class="fact-icon">𓂀</div>
+                    <p id="fact">Press the button to unveil a profound truth from Egypt's eternal legacy.</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const button = document.getElementById("btn");
+        const fact = document.getElementById("fact");
+        const themeToggle = document.getElementById("themeToggle");
+
+        const fallbackFacts = [
+            "The Great Pyramid of Giza—the sole survivor of the Seven Wonders of the Ancient World—was constructed around 2560 BC as an eternal monument to Pharaoh Khufu, containing over 2.3 million limestone blocks.",
+            "The ancient Egyptians developed advanced mathematical and astronomical knowledge, aligning the pyramids with celestial bodies with astonishing precision, demonstrating sophisticated understanding of the cosmos.",
+            "Hieroglyphics represented a revolutionary writing system combining pictorial symbols, phonetic signs, and determinatives—a breakthrough in human communication that lasted over 3,000 years.",
+            "Cleopatra VII was an intellectual powerhouse fluent in at least 9 languages and served as the last pharaoh of the Ptolemaic Kingdom, ruling during one of history's most tumultuous periods.",
+            "The mummification process represented advanced anatomical knowledge and chemical mastery, involving sophisticated preservation techniques still studied by modern scientists today.",
+            "The Nile River's annual flooding cycle determined Egyptian agricultural cycles and religious festivals, making it the lifeblood of one of humanity's greatest civilizations.",
+            "Egyptian civilization spanned over 3,000 years across the Old, Middle, and New Kingdoms—an unparalleled continuity that influenced Western culture, law, and architecture.",
+            "Tutankhamun's reign at age 9 and death at 19 remains one of history's greatest archaeological mysteries, with his intact tomb revealing treasures of immeasurable historical value.",
+            "Cats held sacred status in ancient Egypt, with the goddess Bastet symbolizing feline power, fertility, and divine protection—reflecting the society's reverence for these mystical creatures.",
+            "The Valley of the Kings served as a hidden burial ground for pharaohs and nobles, containing 63 tombs carved into limestone cliffs with intricate paintings and inscriptions."
+        ];
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem("theme");
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            const theme = savedTheme || (prefersDark ? "dark" : "light");
+            document.documentElement.setAttribute("data-theme", theme);
+            localStorage.setItem("theme", theme);
+        }
+
+        themeToggle.addEventListener("click", () => {
+            const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
+            const newTheme = currentTheme === "dark" ? "light" : "dark";
+            document.documentElement.setAttribute("data-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+        });
+
+        button.addEventListener("click", async () => {
+            button.disabled = true;
+            button.innerHTML = "<span>Searching...</span>";
+            fact.innerText = "The oracle is awakening...";
+
+            try {
+                const response = await fetch("https://egypt-facts.onrender.com/api/random", { mode: "cors" });
+                const data = await response.json();
+                fact.innerText = data.fact;
+            } catch (error) {
+                const randomFact = fallbackFacts[Math.floor(Math.random() * fallbackFacts.length)];
+                fact.innerText = randomFact;
+            } finally {
+                button.disabled = false;
+                button.innerHTML = "<span>Discover a Fact</span>";
+            }
+        });
+
+        initTheme();
+    </script>
+</body>
+</html>
